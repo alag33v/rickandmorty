@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Characters, CharacterItem } from './components';
 
-function App() {
+const App = () => {
+  const [characters, setCharacters] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('https://rickandmortyapi.com/api/character');
+      const json = await response.json();
+      setCharacters(json.results);
+    };
+    fetchData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>Rick and Morty</div>
+      <Switch>
+        <Route exact path='/characters'>
+          <Characters characters={characters} />
+        </Route>
+        <Route exact path='/characters/:id' component={CharacterItem} />
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
