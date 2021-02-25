@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { Characters, CharacterItem } from './components';
+import { Header, Characters, CharacterItem } from './components';
 import { addCharacters } from './redux/ducks/charactersDucks';
 
 const App = () => {
@@ -18,6 +18,7 @@ const App = () => {
 
   return (
     <Router>
+      <Header />
       <div>Rick and Morty</div>
       <Switch>
         <Route exact path='/characters' component={Characters} />
