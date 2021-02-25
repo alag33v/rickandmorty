@@ -5,6 +5,7 @@ import {
   addCharacters,
   addMoreCharacters
 } from '../redux/ducks/charactersDucks';
+import { StyledCharacters } from '../styles/components/StyledCharacters';
 
 const Characters = () => {
   const [url, setUrl] = useState('');
@@ -53,8 +54,8 @@ const Characters = () => {
   };
 
   return (
-    <>
-      <ul>
+    <StyledCharacters>
+      <ul className='characters__list'>
         {characters &&
           characters.map((character, index) => {
             if (characters.length === index + 1) {
@@ -78,7 +79,7 @@ const Characters = () => {
             }
           })}
       </ul>
-    </>
+    </StyledCharacters>
   );
 };
 

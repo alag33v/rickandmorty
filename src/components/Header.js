@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { StyledHeader } from '../styles/components/StyledHeader';
 
 const Header = () => {
   const headerItems = [
@@ -20,16 +21,18 @@ const Header = () => {
   ];
 
   return (
-    <div>
-      <h1>Rick and Morty</h1>
-      <ul>
-        {headerItems.map(item => (
-          <li key={item.id}>
-            <Link to={item.path}>{item.title}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <StyledHeader>
+      <h1 className='title'>Rick and Morty</h1>
+      <nav>
+        <ul className='nav__list'>
+          {headerItems.map(item => (
+            <li class key={item.id}>
+              <NavLink to={item.path}>{item.title}</NavLink>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </StyledHeader>
   );
 };
 
