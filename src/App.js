@@ -1,21 +1,7 @@
-import { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import { Header, Characters, CharacterItem } from './components';
-import { addCharacters } from './redux/ducks/charactersDucks';
 
 const App = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch('https://rickandmortyapi.com/api/character');
-      const json = await response.json();
-      dispatch(addCharacters(json.results));
-    };
-    fetchData();
-  }, [dispatch]);
-
   return (
     <Router>
       <Header />
