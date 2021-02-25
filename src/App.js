@@ -1,25 +1,26 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { Characters, CharacterItem } from './components';
+import { addCharacters } from './redux/ducks/charactersDucks';
 
 const App = () => {
-  const [characters, setCharacters] = useState([]);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch('https://rickandmortyapi.com/api/character');
       const json = await response.json();
-      setCharacters(json.results);
+      dispatch(addCharacters(json.results));
     };
     fetchData();
-  }, []);
+  }, [dispatch]);
 
   return (
     <Router>
       <div>Rick and Morty</div>
       <Switch>
-        <Route exact path='/characters'>
-          <Characters characters={characters} />
-        </Route>
+        <Route exact path='/characters' component={Characters} />
         <Route exact path='/characters/:id' component={CharacterItem} />
       </Switch>
     </Router>

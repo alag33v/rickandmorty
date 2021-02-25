@@ -1,8 +1,9 @@
 import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-const Characters = ({ characters }) => {
-  console.log(characters);
+const Characters = () => {
   const history = useHistory();
+  const characters = useSelector(({ characters }) => characters.characters);
 
   const onEdit = id => {
     history.push(`/characters/${id}`);
@@ -12,7 +13,6 @@ const Characters = ({ characters }) => {
     <ul>
       {characters &&
         characters.map(character => {
-          console.log(character);
           return (
             <li key={character.id} onClick={() => onEdit(character.id)}>
               <h4>Name: {character.name}</h4>
