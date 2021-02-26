@@ -1,27 +1,22 @@
 import styled from 'styled-components';
 
-export const StyledLocationItem = styled.div`
+export const StyledEpisodeItem = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 50px;
   position: relative;
 
-  .location__info {
+  .episode__info {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #000;
-    background-color: #87cefa;
-    border: 3px solid blue;
-    border-radius: 50%;
-    width: 350px;
-    height: 350px;
+    border: 3px solid #ccc;
+    width: 500px;
+    height: 250px;
 
     span {
-      font-size: 18px;
-      text-align: center;
-      line-height: 1.5;
+      font-size: 20px;
       margin-bottom: 10px;
       display: block;
     }

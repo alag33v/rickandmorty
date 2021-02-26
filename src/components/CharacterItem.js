@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { StyledCharacterItem } from '../styles/components/StyledCharacterItem';
 import { BiArrowBack } from 'react-icons/bi';
+import { StyledCharacterItem } from '../styles/components/StyledCharacterItem';
 
 const CharacterItem = ({ match }) => {
   const history = useHistory();

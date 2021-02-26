@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Header, CharacterItem, LocationItem } from './components';
-import { Characters, Locations } from './pages';
+import { Header, CharacterItem, LocationItem, EpisodeItem } from './components';
+import { Characters, Locations, Episodes } from './pages';
 import { GlobalStyle } from './styles/GlobalStyle';
 
 const App = () => {
@@ -13,6 +13,8 @@ const App = () => {
         <Route exact path='/characters/:id' component={CharacterItem} />
         <Route exact path='/locations' component={Locations} />
         <Route exact path='/locations/:id' component={LocationItem} />
+        <Route exact path='/episodes' component={Episodes} />
+        <Route exact path='/episodes/:id' component={EpisodeItem} />
       </Switch>
     </Router>
   );

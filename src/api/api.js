@@ -33,3 +33,18 @@ export const locationsAPI = {
     return response.data.results;
   }
 };
+
+export const episodesAPI = {
+  async fetchEpisodes() {
+    const response = await instance.get(`episode?page=1`);
+    return response.data;
+  },
+  async fetchMoreEpisodes(url) {
+    const response = await instance.get(`${url}`);
+    return response.data;
+  },
+  async search(searchEpisode) {
+    const response = await instance.get(`episode/?name=${searchEpisode}`);
+    return response.data.results;
+  }
+};
