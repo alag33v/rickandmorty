@@ -2,49 +2,22 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  addCharacters,
-  addMoreCharacters,
-  searchCharacters
+  getSearchCharacters,
+  getMoreCharacters,
+  getCharacters
 } from '../redux/ducks/charactersDucks';
 import { StyledCharacters } from '../styles/components/StyledCharacters';
 
 const Characters = () => {
-  const [url, setUrl] = useState('');
   const [loadMore, setLoadMore] = useState(true);
   const [search, setSearch] = useState('');
   const history = useHistory();
-  const characters = useSelector(({ characters }) => characters.characters);
+  const { characters, url } = useSelector(({ characters }) => characters);
   const dispatch = useDispatch();
 
-  const fetchCharacters = useCallback(async () => {
-    const response = await fetch(
-      'https://rickandmortyapi.com/api/character?page=1'
-    );
-    const json = await response.json();
-    setUrl(json.info.next);
-    dispatch(addCharacters(json.results));
-  }, [dispatch]);
-
   useEffect(() => {
-    fetchCharacters();
-  }, [fetchCharacters, dispatch]);
-
-  const fetchMoreCharacters = useCallback(
-    async endpoint => {
-      const response = await fetch(endpoint);
-      const json = await response.json();
-      setUrl(json.info.next);
-      dispatch(addMoreCharacters(json.results));
-    },
-    [dispatch]
-  );
-
-  const fetchSearchCharacters = async endpoint => {
-    const response = await fetch(endpoint);
-    const json = await response.json();
-    console.log(json.results);
-    dispatch(searchCharacters(json.results));
-  };
+    dispatch(getCharacters());
+  }, [dispatch]);
 
   const observer = useRef();
   const lastCharacter = useCallback(
@@ -52,24 +25,22 @@ const Characters = () => {
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver(entries => {
         if (entries[0].isIntersecting && url && loadMore) {
-          fetchMoreCharacters(url);
+          dispatch(getMoreCharacters(url));
         }
       });
       if (character) observer.current.observe(character);
     },
-    [fetchMoreCharacters, url, loadMore]
+    [url, loadMore, dispatch]
   );
 
   const onFindCharacter = e => {
     e.preventDefault();
     if (!search.trim()) {
       setLoadMore(true);
-      fetchCharacters();
+      dispatch(getCharacters());
     } else {
       setLoadMore(false);
-      fetchSearchCharacters(
-        `https://rickandmortyapi.com/api/character/?name=${search}`
-      );
+      dispatch(getSearchCharacters(search));
     }
   };
 
