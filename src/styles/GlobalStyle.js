@@ -20,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0 25px;
     margin: 0 auto;
     color: #eee;
-    background-color: #50585E;
+    background-color: #080808;
     min-height: 100vh;
   }
 `;

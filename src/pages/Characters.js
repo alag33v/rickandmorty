@@ -65,7 +65,7 @@ const Characters = () => {
             if (characters.length === index + 1) {
               return (
                 <li ref={lastCharacter} key={`${character.id}-${index}`}>
-                  <h4>Name: {character.name}</h4>
+                  <h4>{character.name}</h4>
                   <img
                     src={character.image}
                     alt={character.name}
@@ -76,7 +76,7 @@ const Characters = () => {
             } else {
               return (
                 <li key={`${character.id}-${index}`}>
-                  <h4>Name: {character.name}</h4>
+                  <h4>{character.name}</h4>
                   <img
                     src={character.image}
                     alt={character.name}

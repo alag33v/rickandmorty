@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
-  .title {
-    font-size: 42px;
-    text-align: center;
+  .logo {
+    width: 300px;
+    display: block;
+    margin: 20px auto 50px;
   }
 
   .nav__list {
