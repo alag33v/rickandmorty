@@ -6,7 +6,7 @@ import {
   getMoreCharacters,
   getCharacters
 } from '../redux/ducks/charactersDucks';
-import { StyledCharacters } from '../styles/components/StyledCharacters';
+import { StyledCharacters } from '../styles/pages/StyledCharacters';
 
 const Characters = () => {
   const [loadMore, setLoadMore] = useState(true);
@@ -64,23 +64,24 @@ const Characters = () => {
           characters.map((character, index) => {
             if (characters.length === index + 1) {
               return (
-                <li
-                  onClick={() => onEdit(character.id)}
-                  ref={lastCharacter}
-                  key={`${character.id}-${index}`}
-                >
+                <li ref={lastCharacter} key={`${character.id}-${index}`}>
                   <h4>Name: {character.name}</h4>
-                  <img src={character.image} alt={character.name} />
+                  <img
+                    src={character.image}
+                    alt={character.name}
+                    onClick={() => onEdit(character.id)}
+                  />
                 </li>
               );
             } else {
               return (
-                <li
-                  onClick={() => onEdit(character.id)}
-                  key={`${character.id}-${index}`}
-                >
+                <li key={`${character.id}-${index}`}>
                   <h4>Name: {character.name}</h4>
-                  <img src={character.image} alt={character.name} />
+                  <img
+                    src={character.image}
+                    alt={character.name}
+                    onClick={() => onEdit(character.id)}
+                  />
                 </li>
               );
             }

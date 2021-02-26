@@ -35,7 +35,6 @@ export const StyledCharacters = styled.div`
     li {
       text-align: center;
       list-style: none;
-      cursor: pointer;
     }
 
     h4 {
@@ -48,6 +47,7 @@ export const StyledCharacters = styled.div`
       height: 275px;
       display: block;
       border-radius: 5px;
+      cursor: pointer;
     }
   }
 `;

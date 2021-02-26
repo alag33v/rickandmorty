@@ -13,8 +13,23 @@ export const charactersAPI = {
     const response = await instance.get(`${url}`);
     return response.data;
   },
-  async search(searchName) {
-    const response = await instance.get(`character/?name=${searchName}`);
+  async search(searchCharacter) {
+    const response = await instance.get(`character/?name=${searchCharacter}`);
+    return response.data.results;
+  }
+};
+
+export const locationsAPI = {
+  async fetchCharacters() {
+    const response = await instance.get(`location?page=1`);
+    return response.data;
+  },
+  async fetchMoreLocations(url) {
+    const response = await instance.get(`${url}`);
+    return response.data;
+  },
+  async search(searchPlanet) {
+    const response = await instance.get(`location/?name=${searchPlanet}`);
     return response.data.results;
   }
 };

@@ -61,8 +61,8 @@ export const getMoreCharacters = url => async dispatch => {
   dispatch(addMoreCharacters(data.results));
 };
 
-export const getSearchCharacters = searchName => async dispatch => {
-  const data = await charactersAPI.search(searchName);
+export const getSearchCharacters = searchCharacter => async dispatch => {
+  const data = await charactersAPI.search(searchCharacter);
   dispatch(searchCharacters(data));
 };
 
