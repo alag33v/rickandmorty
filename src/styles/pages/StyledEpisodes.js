@@ -14,6 +14,10 @@ export const StyledEpisodes = styled.div`
       border: none;
       outline: none;
       cursor: pointer;
+
+      @media (max-width: 400px) {
+        width: 200px;
+      }
     }
 
     button {
@@ -24,6 +28,10 @@ export const StyledEpisodes = styled.div`
       border: none;
       outline-color: #87cefa;
       cursor: pointer;
+
+      @media (max-width: 400px) {
+        padding: 7px 10px;
+      }
     }
   }
 
@@ -33,18 +41,26 @@ export const StyledEpisodes = styled.div`
     justify-content: space-between;
     padding: 0;
 
+    @media (max-width: 1200px) {
+      justify-content: center;
+    }
+
     li {
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
       list-style: none;
-      width: 250px;
+      width: 275px;
       height: 100px;
       margin-bottom: 25px;
       padding: 5px 10px;
       border: 2px solid #ccc;
       cursor: pointer;
+
+      @media (max-width: 1200px) {
+        margin: 0 20px 20px;
+      }
     }
 
     h4 {

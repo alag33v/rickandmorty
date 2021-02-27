@@ -13,6 +13,10 @@ export const StyledCharacters = styled.div`
       border: none;
       outline: none;
       cursor: pointer;
+
+      @media (max-width: 400px) {
+        width: 200px;
+      }
     }
 
     button {
@@ -23,6 +27,10 @@ export const StyledCharacters = styled.div`
       border: none;
       outline-color: #87cefa;
       cursor: pointer;
+
+      @media (max-width: 400px) {
+        padding: 7px 10px;
+      }
     }
   }
 
@@ -32,9 +40,17 @@ export const StyledCharacters = styled.div`
     justify-content: space-between;
     padding: 0;
 
+    @media (max-width: 1200px) {
+      justify-content: center;
+    }
+
     li {
       text-align: center;
       list-style: none;
+
+      @media (max-width: 1200px) {
+        margin: 0 15px;
+      }
     }
 
     h4 {
@@ -44,7 +60,7 @@ export const StyledCharacters = styled.div`
 
     img {
       width: 275px;
-      height: 275px;
+      max-width: 100%;
       display: block;
       border-radius: 5px;
       cursor: pointer;

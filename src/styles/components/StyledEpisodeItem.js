@@ -13,7 +13,23 @@ export const StyledEpisodeItem = styled.div`
     align-items: center;
     border: 3px solid #ccc;
     width: 500px;
+    padding: 5px 10px;
+    max-width: 100%;
     height: 250px;
+
+    @media (max-width: 800px) {
+      width: 400px;
+      height: 225px;
+    }
+
+    @media (max-width: 550px) {
+      margin-top: 50px;
+    }
+
+    @media (max-width: 450px) {
+      align-items: flex-start;
+      height: 180px;
+    }
 
     span {
       font-size: 20px;

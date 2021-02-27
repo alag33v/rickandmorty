@@ -18,12 +18,31 @@ export const StyledLocationItem = styled.div`
     width: 350px;
     height: 350px;
 
+    @media (max-width: 400px) {
+      width: 300px;
+      height: 300px;
+    }
+
+    @media (max-width: 350px) {
+      width: 280px;
+      height: 280px;
+    }
+
     span {
       font-size: 18px;
       text-align: center;
       line-height: 1.5;
+      max-width: 320px;
       margin-bottom: 10px;
       display: block;
+
+      @media (max-width: 400px) {
+        max-width: 270px;
+      }
+
+      @media (max-width: 350px) {
+        max-width: 250px;
+      }
     }
   }
 

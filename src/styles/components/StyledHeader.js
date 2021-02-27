@@ -3,8 +3,9 @@ import styled from 'styled-components';
 export const StyledHeader = styled.header`
   .logo {
     width: 300px;
-    display: block;
+    max-width: 100%;
     margin: 20px auto 50px;
+    display: block;
   }
 
   .nav__list {
@@ -17,6 +18,15 @@ export const StyledHeader = styled.header`
       font-weight: 700;
       list-style: none;
       margin: 0 20px;
+
+      @media (max-width: 500px) {
+        font-size: 20px;
+      }
+
+      @media (max-width: 400px) {
+        font-size: 18px;
+        margin: 0 10px;
+      }
     }
 
     a {

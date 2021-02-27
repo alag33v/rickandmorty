@@ -14,6 +14,10 @@ export const StyledLocations = styled.div`
       border: none;
       outline: none;
       cursor: pointer;
+
+      @media (max-width: 400px) {
+        width: 200px;
+      }
     }
 
     button {
@@ -24,6 +28,10 @@ export const StyledLocations = styled.div`
       border: none;
       outline-color: #87cefa;
       cursor: pointer;
+
+      @media (max-width: 400px) {
+        padding: 7px 10px;
+      }
     }
   }
 
@@ -33,11 +41,15 @@ export const StyledLocations = styled.div`
     justify-content: space-between;
     padding: 0;
 
+    @media (max-width: 1200px) {
+      justify-content: center;
+    }
+
     li {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 250px;
+      width: 275px;
       height: 125px;
       max-width: 100%;
       text-align: center;
@@ -47,6 +59,10 @@ export const StyledLocations = styled.div`
       border: 1px dashed #ccc;
       border-radius: 5px;
       cursor: pointer;
+
+      @media (max-width: 1200px) {
+        margin: 0 20px 20px;
+      }
     }
 
     h4 {

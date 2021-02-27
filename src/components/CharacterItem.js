@@ -18,7 +18,7 @@ const CharacterItem = ({ match }) => {
 
   return (
     <StyledCharacterItem>
-      <h2 className='title'>Name: {character.name}</h2>
+      <h2 className='title'>{character.name}</h2>
       <div className='character__wrapper'>
         <img src={character.image} alt={character.name} />
         <div className='character__info'>
